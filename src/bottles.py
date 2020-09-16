@@ -15,6 +15,12 @@ class Bottles:
         else:
             return "bottles"
 
+    def pronoun(self, number):
+        if number == 1:
+            return "it"
+        else:
+            return "one"
+
     def verse(self, number):
         if number == 0:
             return (
@@ -27,13 +33,13 @@ class Bottles:
             return (
                 f"{number} {self.container(number)} of beer on the wall, "
                 f"{number} {self.container(number)} of beer.\n"
-                "Take it down and pass it around, "
-                "no more bottles of beer on the wall.\n"
+                f"Take {self.pronoun(number)} down and pass it around, "
+                f"no more bottles of beer on the wall.\n"
             )
         else:
             return (
                 f"{number} {self.container(number)} of beer on the wall, "
                 f"{number} {self.container(number)} of beer.\n"
-                f"Take one down and pass it around, "
+                f"Take {self.pronoun(number)} down and pass it around, "
                 f"{number-1} {self.container(number-1)} of beer on the wall.\n"
             )
