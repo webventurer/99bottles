@@ -22,4 +22,5 @@ def py_files(filename):
 @sniffer.api.runnable
 def execute_nose(*args):
     import nose
+
     return nose.run(argv=list(args))
