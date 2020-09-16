@@ -34,25 +34,18 @@ class Bottles:
             return f"Take {self.pronoun(number)} down and pass it around, "
 
     def successor(self, number):
-        return number - 1
+        if number == 0:
+            return 99
+        else:
+            return number - 1
 
     def verse(self, number):
-        if number == 0:
-            return (
-                f"{self.quantity(number).capitalize()} "
-                f"{self.container(number)} of beer on the wall, "
-                f"{self.quantity(number)} {self.container(number)} of beer.\n"
-                f"{self.action(number)}"
-                f"{self.quantity(99)} {self.container(number-1)} "
-                f"of beer on the wall.\n"
-            )
-        else:
-            return (
-                f"{self.quantity(number).capitalize()} "
-                f"{self.container(number)} of beer on the wall, "
-                f"{self.quantity(number)} {self.container(number)} of beer.\n"
-                f"{self.action(number)}"
-                f"{self.quantity(self.successor(number))} "
-                f"{self.container(number-1)} "
-                f"of beer on the wall.\n"
-            )
+        return (
+            f"{self.quantity(number).capitalize()} "
+            f"{self.container(number)} of beer on the wall, "
+            f"{self.quantity(number)} {self.container(number)} of beer.\n"
+            f"{self.action(number)}"
+            f"{self.quantity(self.successor(number))} "
+            f"{self.container(number-1)} "
+            f"of beer on the wall.\n"
+        )
