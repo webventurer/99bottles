@@ -46,6 +46,6 @@ class Bottles:
             f"{self.quantity(number)} {self.container(number)} of beer.\n"
             f"{self.action(number)}"
             f"{self.quantity(self.successor(number))} "
-            f"{self.container(number-1)} "
+            f"{self.container(self.successor(number))} "
             f"of beer on the wall.\n"
         )
