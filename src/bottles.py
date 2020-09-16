@@ -27,13 +27,19 @@ class Bottles:
         else:
             return str(number)
 
+    def action(self, number):
+        if number == 0:
+            return "Go to the store and buy some more, "
+        else:
+            return f"Take {self.pronoun(number)} down and pass it around, "
+
     def verse(self, number):
         if number == 0:
             return (
                 f"{self.quantity(number).capitalize()} "
                 f"{self.container(number)} of beer on the wall, "
                 f"{self.quantity(number)} {self.container(number)} of beer.\n"
-                f"Go to the store and buy some more, "
+                f"{self.action(number)}"
                 f"99 bottles of beer on the wall.\n"
             )
         else:
@@ -41,7 +47,7 @@ class Bottles:
                 f"{self.quantity(number).capitalize()} "
                 f"{self.container(number)} of beer on the wall, "
                 f"{self.quantity(number)} {self.container(number)} of beer.\n"
-                f"Take {self.pronoun(number)} down and pass it around, "
+                f"{self.action(number)}"
                 f"{self.quantity(number-1)} {self.container(number-1)} "
                 f"of beer on the wall.\n"
             )
