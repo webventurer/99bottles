@@ -8,7 +8,7 @@ pass_bg_color = termstyle.bg_default
 fail_fg_color = termstyle.red
 fail_bg_color = termstyle.bg_default
 
-watch_paths = [".", "src/", "tests/"]
+watch_paths = ["src/", "tests/"]
 
 
 @sniffer.api.file_validator
