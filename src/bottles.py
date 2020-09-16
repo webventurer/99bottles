@@ -21,6 +21,12 @@ class Bottles:
         else:
             return "one"
 
+    def quantity(self, number):
+        if number == 0:
+            return "no more"
+        else:
+            return number
+
     def verse(self, number):
         if number == 0:
             return (
@@ -29,17 +35,11 @@ class Bottles:
                 "Go to the store and buy some more, "
                 "99 bottles of beer on the wall.\n"
             )
-        elif number == 1:
-            return (
-                f"{number} {self.container(number)} of beer on the wall, "
-                f"{number} {self.container(number)} of beer.\n"
-                f"Take {self.pronoun(number)} down and pass it around, "
-                f"no more bottles of beer on the wall.\n"
-            )
         else:
             return (
                 f"{number} {self.container(number)} of beer on the wall, "
                 f"{number} {self.container(number)} of beer.\n"
                 f"Take {self.pronoun(number)} down and pass it around, "
-                f"{number-1} {self.container(number-1)} of beer on the wall.\n"
+                f"{self.quantity(number-1)} {self.container(number-1)} "
+                f"of beer on the wall.\n"
             )
