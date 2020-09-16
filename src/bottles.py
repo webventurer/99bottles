@@ -30,8 +30,8 @@ class Bottles:
     def verse(self, number):
         if number == 0:
             return (
-                f"{self.quantity(number).capitalize()} bottles "
-                f"of beer on the wall, "
+                f"{self.quantity(number).capitalize()} "
+                f"{self.container(number)} of beer on the wall, "
                 f"no more bottles of beer.\n"
                 f"Go to the store and buy some more, "
                 f"99 bottles of beer on the wall.\n"
