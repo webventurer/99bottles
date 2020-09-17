@@ -21,51 +21,51 @@ class Bottles:
         )
 
     def quantity(self, number):
-        return BottleNumber(number).quantity(number)
+        return BottleNumber(number).quantity()
 
     def container(self, number):
-        return BottleNumber(number).container(number)
+        return BottleNumber(number).container()
 
     def action(self, number):
-        return BottleNumber(number).action(number)
+        return BottleNumber(number).action()
 
     def pronoun(self, number):
-        return BottleNumber(number).pronoun(number)
+        return BottleNumber(number).pronoun()
 
     def successor(self, number):
-        return BottleNumber(number).successor(number)
+        return BottleNumber(number).successor()
 
 
 class BottleNumber:
     def __init__(self, number):
         self.number = number
 
-    def quantity(self, number):
-        if number == 0:
+    def quantity(self):
+        if self.number == 0:
             return "no more"
         else:
-            return str(number)
+            return str(self.number)
 
-    def container(self, number):
-        if number == 1:
+    def container(self):
+        if self.number == 1:
             return "bottle"
         else:
             return "bottles"
 
-    def action(self, number):
-        if number == 0:
+    def action(self):
+        if self.number == 0:
             return "Go to the store and buy some more, "
         else:
-            return f"Take {self.pronoun(number)} down and pass it around, "
+            return f"Take {self.pronoun()} down and pass it around, "
 
-    def pronoun(self, number):
-        if number == 1:
+    def pronoun(self):
+        if self.number == 1:
             return "it"
         else:
             return "one"
 
-    def successor(self, number):
-        if number == 0:
+    def successor(self):
+        if self.number == 0:
             return 99
         else:
-            return number - 1
+            return self.number - 1
