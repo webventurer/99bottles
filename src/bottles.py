@@ -20,17 +20,25 @@ class Bottles:
             f"of beer on the wall.\n"
         )
 
+    def quantity(self, number):
+        return BottleNumber(number).quantity(number)
+
     def container(self, number):
-        if number == 1:
-            return "bottle"
-        else:
-            return "bottles"
+        return BottleNumber(number).container(number)
+
+    def action(self, number):
+        return BottleNumber(number).action(number)
 
     def pronoun(self, number):
-        if number == 1:
-            return "it"
-        else:
-            return "one"
+        return BottleNumber(number).pronoun(number)
+
+    def successor(self, number):
+        return BottleNumber(number).successor(number)
+
+
+class BottleNumber:
+    def __init__(self, number):
+        self.number = number
 
     def quantity(self, number):
         if number == 0:
@@ -38,11 +46,23 @@ class Bottles:
         else:
             return str(number)
 
+    def container(self, number):
+        if number == 1:
+            return "bottle"
+        else:
+            return "bottles"
+
     def action(self, number):
         if number == 0:
             return "Go to the store and buy some more, "
         else:
             return f"Take {self.pronoun(number)} down and pass it around, "
+
+    def pronoun(self, number):
+        if number == 1:
+            return "it"
+        else:
+            return "one"
 
     def successor(self, number):
         if number == 0:
