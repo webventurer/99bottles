@@ -11,6 +11,9 @@ black = "*"
 nose2 = "*"
 sniffer = "*"
 macfsevents = "*"
+radon = "*"
+flake8-polyfill = "*"
+wily = "*"
 
 [requires]
 python_version = "3.8"
