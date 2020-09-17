@@ -9,6 +9,17 @@ class Bottles:
         text = [self.verse(number) for number in range(upper, lower - 1, -1)]
         return "\n".join(text)
 
+    def verse(self, number):
+        return (
+            f"{self.quantity(number).capitalize()} "
+            f"{self.container(number)} of beer on the wall, "
+            f"{self.quantity(number)} {self.container(number)} of beer.\n"
+            f"{self.action(number)}"
+            f"{self.quantity(self.successor(number))} "
+            f"{self.container(self.successor(number))} "
+            f"of beer on the wall.\n"
+        )
+
     def container(self, number):
         if number == 1:
             return "bottle"
@@ -38,14 +49,3 @@ class Bottles:
             return 99
         else:
             return number - 1
-
-    def verse(self, number):
-        return (
-            f"{self.quantity(number).capitalize()} "
-            f"{self.container(number)} of beer on the wall, "
-            f"{self.quantity(number)} {self.container(number)} of beer.\n"
-            f"{self.action(number)}"
-            f"{self.quantity(self.successor(number))} "
-            f"{self.container(self.successor(number))} "
-            f"of beer on the wall.\n"
-        )
