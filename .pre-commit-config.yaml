@@ -35,7 +35,7 @@ repos:
     hooks:
       - id: wily
         name: wily
-        entry: wily diff
+        entry: wily diff --all --no-detail --metrics raw.sloc,cyclomatic.complexity,maintainability.rank
         verbose: true
         language: python
         additional_dependencies: [wily]
