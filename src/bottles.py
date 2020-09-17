@@ -10,30 +10,17 @@ class Bottles:
         return "\n".join(text)
 
     def verse(self, number):
+        bottle_number = BottleNumber(number)
+        next_bottle_number = BottleNumber(bottle_number.successor())
         return (
-            f"{self.quantity(number).capitalize()} "
-            f"{self.container(number)} of beer on the wall, "
-            f"{self.quantity(number)} {self.container(number)} of beer.\n"
-            f"{self.action(number)}"
-            f"{self.quantity(self.successor(number))} "
-            f"{self.container(self.successor(number))} "
+            f"{bottle_number.quantity().capitalize()} "
+            f"{bottle_number.container()} of beer on the wall, "
+            f"{bottle_number.quantity()} {bottle_number.container()} "
+            f"of beer.\n"
+            f"{bottle_number.action()} {next_bottle_number.quantity()} "
+            f"{next_bottle_number.container()} "
             f"of beer on the wall.\n"
         )
-
-    def quantity(self, number):
-        return BottleNumber(number).quantity()
-
-    def container(self, number):
-        return BottleNumber(number).container()
-
-    def action(self, number):
-        return BottleNumber(number).action()
-
-    def pronoun(self, number):
-        return BottleNumber(number).pronoun()
-
-    def successor(self, number):
-        return BottleNumber(number).successor()
 
 
 class BottleNumber:
@@ -54,9 +41,9 @@ class BottleNumber:
 
     def action(self):
         if self.number == 0:
-            return "Go to the store and buy some more, "
+            return "Go to the store and buy some more,"
         else:
-            return f"Take {self.pronoun()} down and pass it around, "
+            return f"Take {self.pronoun()} down and pass it around,"
 
     def pronoun(self):
         if self.number == 1:
