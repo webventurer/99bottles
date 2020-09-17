@@ -31,3 +31,11 @@ repos:
         args: ["--autofix"]
       - id: requirements-txt-fixer
       - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: wily
+        name: wily
+        entry: wily diff
+        verbose: true
+        language: python
+        additional_dependencies: [wily]
