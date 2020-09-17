@@ -5,8 +5,8 @@ class Bottles:
     def song(self):
         return self.verses(99, 0)
 
-    def verses(self, first, last):
-        text = [self.verse(number) for number in range(first, last - 1, -1)]
+    def verses(self, upper, lower):
+        text = [self.verse(number) for number in range(upper, lower - 1, -1)]
         return "\n".join(text)
 
     def container(self, number):
