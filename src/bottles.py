@@ -2,6 +2,9 @@ FIXME = None
 
 
 class Bottles:
+    def for_bottle_number(self, number):
+        return {0: BottleNumber0(number)}.get(number, BottleNumber(number))
+
     def song(self):
         return self.verses(99, 0)
 
@@ -10,11 +13,11 @@ class Bottles:
         return "\n".join(text)
 
     def verse(self, number):
-        bottle_number = BottleNumber(number)
-        next_bottle_number = BottleNumber(bottle_number.successor())
+        bottle_number = self.for_bottle_number(number)
+        next_bottle_number = self.for_bottle_number(bottle_number.successor())
         return (
-            f"{bottle_number} of beer on the wall, ".capitalize() +
-            f"{bottle_number} of beer.\n"
+            f"{bottle_number} of beer on the wall, ".capitalize()
+            + f"{bottle_number} of beer.\n"
             f"{bottle_number.action()} {next_bottle_number} "
             f"of beer on the wall.\n"
         )
@@ -25,10 +28,7 @@ class BottleNumber:
         self.number = number
 
     def quantity(self):
-        if self.number == 0:
-            return "no more"
-        else:
-            return str(self.number)
+        return str(self.number)
 
     def container(self):
         if self.number == 1:
@@ -56,3 +56,8 @@ class BottleNumber:
 
     def __str__(self):
         return f"{self.quantity()} {self.container()}"
+
+
+class BottleNumber0(BottleNumber):
+    def quantity(self):
+        return "no more"
