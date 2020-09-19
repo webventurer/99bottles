@@ -11,7 +11,7 @@ class Bottles:
 
     def verse(self, number):
         bottle_number = BottleNumber.from_number(number)
-        next_bottle_number = BottleNumber.from_number(bottle_number.successor())
+        next_bottle_number = bottle_number.successor()
         return (
             f"{bottle_number} of beer on the wall, ".capitalize()
             + f"{bottle_number} of beer.\n"
@@ -43,7 +43,7 @@ class BottleNumber:
         return "one"
 
     def successor(self):
-        return self.number - 1
+        return BottleNumber.from_number(self.number - 1)
 
     def __str__(self):
         return f"{self.quantity()} {self.container()}"
@@ -57,7 +57,7 @@ class BottleNumber0(BottleNumber):
         return "Go to the store and buy some more,"
 
     def successor(self):
-        return 99
+        return BottleNumber.from_number(99)
 
 
 class BottleNumber1(BottleNumber):
