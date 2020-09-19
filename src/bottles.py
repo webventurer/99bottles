@@ -25,7 +25,9 @@ class BottleNumber:
 
     @classmethod
     def from_number(cls, number):
-        return {0: BottleNumber0(number), 1: BottleNumber1(number)}.get(
+        return {0: BottleNumber0(number),
+                1: BottleNumber1(number),
+                6: BottleNumber6(number)}.get(
             number, BottleNumber(number)
         )
 
@@ -65,3 +67,12 @@ class BottleNumber1(BottleNumber):
 
     def pronoun(self):
         return "it"
+
+
+class BottleNumber6(BottleNumber):
+    def quantity(self):
+        return "1"
+
+    def container(self):
+        return "six-pack"
+
