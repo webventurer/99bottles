@@ -33,28 +33,16 @@ class BottleNumber:
         return str(self.number)
 
     def container(self):
-        if self.number == 1:
-            return "bottle"
-        else:
-            return "bottles"
+        return "bottles"
 
     def action(self):
-        if self.number == 0:
-            return "Go to the store and buy some more,"
-        else:
-            return f"Take {self.pronoun()} down and pass it around,"
+        return f"Take {self.pronoun()} down and pass it around,"
 
     def pronoun(self):
-        if self.number == 1:
-            return "it"
-        else:
-            return "one"
+        return "one"
 
     def successor(self):
-        if self.number == 0:
-            return 99
-        else:
-            return self.number - 1
+        return self.number - 1
 
     def __str__(self):
         return f"{self.quantity()} {self.container()}"
@@ -63,3 +51,17 @@ class BottleNumber:
 class BottleNumber0(BottleNumber):
     def quantity(self):
         return "no more"
+
+    def action(self):
+        return "Go to the store and buy some more,"
+
+    def successor(self):
+        return 99
+
+
+class BottleNumber1(BottleNumber):
+    def container(self):
+        return "bottle"
+
+    def pronoun(self):
+        return "it"
