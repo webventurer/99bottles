@@ -10,8 +10,8 @@ class Bottles:
         return "\n".join(text)
 
     def verse(self, number):
-        bottle_number = self.for_bottle_number(number)
-        next_bottle_number = self.for_bottle_number(bottle_number.successor())
+        bottle_number = BottleNumber.from_number(number)
+        next_bottle_number = BottleNumber.from_number(bottle_number.successor())
         return (
             f"{bottle_number} of beer on the wall, ".capitalize()
             + f"{bottle_number} of beer.\n"
@@ -19,15 +19,16 @@ class Bottles:
             f"of beer on the wall.\n"
         )
 
-    def for_bottle_number(self, number):
-        return {0: BottleNumber0(number), 1: BottleNumber1(number)}.get(
-            number, BottleNumber(number)
-        )
-
 
 class BottleNumber:
     def __init__(self, number):
         self.number = number
+
+    @classmethod
+    def from_number(cls, number):
+        return {0: BottleNumber0(number), 1: BottleNumber1(number)}.get(
+            number, BottleNumber(number)
+        )
 
     def quantity(self):
         return str(self.number)
