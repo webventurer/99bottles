@@ -11,11 +11,10 @@ class Bottles:
 
     def verse(self, number):
         bottle_number = BottleNumber.from_number(number)
-        next_bottle_number = bottle_number.successor()
         return (
             f"{bottle_number} of beer on the wall, ".capitalize()
             + f"{bottle_number} of beer.\n"
-            f"{bottle_number.action()} {next_bottle_number} "
+            f"{bottle_number.action()} {bottle_number.successor()} "
             f"of beer on the wall.\n"
         )
 
