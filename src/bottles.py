@@ -2,9 +2,6 @@ FIXME = None
 
 
 class Bottles:
-    def for_bottle_number(self, number):
-        return {0: BottleNumber0(number)}.get(number, BottleNumber(number))
-
     def song(self):
         return self.verses(99, 0)
 
@@ -20,6 +17,11 @@ class Bottles:
             + f"{bottle_number} of beer.\n"
             f"{bottle_number.action()} {next_bottle_number} "
             f"of beer on the wall.\n"
+        )
+
+    def for_bottle_number(self, number):
+        return {0: BottleNumber0(number), 1: BottleNumber1(number)}.get(
+            number, BottleNumber(number)
         )
 
 
