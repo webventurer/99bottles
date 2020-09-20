@@ -37,11 +37,11 @@ class BottleVerse:
 class BottleNumber:
     @classmethod
     def from_number(cls, number):
-        return {0: BottleNumber0(number),
-                1: BottleNumber1(number),
-                6: BottleNumber6(number)}.get(
-            number, BottleNumber(number)
-        )
+        return {
+            0: BottleNumber0(number),
+            1: BottleNumber1(number),
+            6: BottleNumber6(number),
+        }.get(number, BottleNumber(number))
 
     def __init__(self, number):
         self.number = number
@@ -90,4 +90,3 @@ class BottleNumber6(BottleNumber):
 
     def container(self):
         return "six-pack"
-
