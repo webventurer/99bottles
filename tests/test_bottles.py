@@ -96,7 +96,7 @@ class CountdownSongTest(unittest.TestCase):
         expected = "This is verse 500. \n"
         self.assertEqual(expected, bottles.CountdownSong(VerseFake).verse(500))
 
-    def test_two_verses(self):
+    def test_verses(self):
         expected = (
             "This is verse 99. \n"
             + "\n"
