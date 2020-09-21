@@ -4,8 +4,6 @@ FIXME = None
 class CountdownSong:
     def __init__(self, verse_template, max=999, min=0):
         self.verse_template = verse_template
-        if verse_template is None:
-            self.verse_template = BottleVerse
         self.max = max
         self.min = min
 
