@@ -2,13 +2,15 @@ FIXME = None
 
 
 class CountdownSong:
-    def __init__(self, verse_template=None):
+    def __init__(self, verse_template=None, max=99, min=0):
         self.verse_template = verse_template
         if verse_template is None:
             self.verse_template = BottleVerse
+        self.max = max
+        self.min = min
 
     def song(self):
-        return self.verses(99, 0)
+        return self.verses(self.max, self.min)
 
     def verses(self, upper, lower):
         text = [self.verse(number) for number in range(upper, lower - 1, -1)]
