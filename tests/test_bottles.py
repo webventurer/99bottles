@@ -5,15 +5,6 @@ import bottles
 
 
 class BottlesTest(unittest.TestCase):
-    def test_the_first_verse(self):
-        expected = (
-            "99 bottles of beer on the wall, "
-            + "99 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "98 bottles of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.Bottles().verse(99))
-
     def test_another_verse(self):
         expected = (
             "3 bottles of beer on the wall, "
@@ -404,6 +395,17 @@ class BottleNumberTest(unittest.TestCase):
         self.assertEqual(
             type(bottles.BottleNumber.from_number(2)), bottles.BottleNumber,
         )
+
+
+class BottleVerseTest(unittest.TestCase):
+    def test_the_first_verse(self):
+        expected = (
+            "99 bottles of beer on the wall, "
+            + "99 bottles of beer.\n"
+            + "Take one down and pass it around, "
+            + "98 bottles of beer on the wall.\n"
+        )
+        self.assertEqual(expected, bottles.BottleVerse.from_number(99))
 
 
 if __name__ == "__main__":
