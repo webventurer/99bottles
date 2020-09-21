@@ -1,6 +1,3 @@
-FIXME = None
-
-
 class CountdownSong:
     def __init__(self, verse_template, max=999, min=0):
         self.verse_template = verse_template
