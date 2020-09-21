@@ -4,6 +4,69 @@ import unittest
 import bottles
 
 
+class BottleNumberTest(unittest.TestCase):
+    def test_returns_correct_class_for_given_number(self):
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(0)), bottles.BottleNumber0,
+        )
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(1)), bottles.BottleNumber1,
+        )
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(6)), bottles.BottleNumber6,
+        )
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(2)), bottles.BottleNumber,
+        )
+
+
+class BottleVerseTest(unittest.TestCase):
+    def test_the_first_verse(self):
+        expected = (
+            "99 bottles of beer on the wall, "
+            + "99 bottles of beer.\n"
+            + "Take one down and pass it around, "
+            + "98 bottles of beer on the wall.\n"
+        )
+        self.assertEqual(expected, bottles.BottleVerse.from_number(99))
+
+    def test_another_verse(self):
+        expected = (
+            "3 bottles of beer on the wall, "
+            + "3 bottles of beer.\n"
+            + "Take one down and pass it around, "
+            + "2 bottles of beer on the wall.\n"
+        )
+        self.assertEqual(expected, bottles.BottleVerse.from_number(3))
+
+    def test_verse_2(self):
+        expected = (
+            "2 bottles of beer on the wall, "
+            + "2 bottles of beer.\n"
+            + "Take one down and pass it around, "
+            + "1 bottle of beer on the wall.\n"
+        )
+        self.assertEqual(expected, bottles.BottleVerse.from_number(2))
+
+    def test_verse_1(self):
+        expected = (
+            "1 bottle of beer on the wall, "
+            + "1 bottle of beer.\n"
+            + "Take it down and pass it around, "
+            + "no more bottles of beer on the wall.\n"
+        )
+        self.assertEqual(expected, bottles.BottleVerse.from_number(1))
+
+    def test_verse_0(self):
+        expected = (
+            "No more bottles of beer on the wall, "
+            + "no more bottles of beer.\n"
+            + "Go to the store and buy some more, "
+            + "99 bottles of beer on the wall.\n"
+        )
+        self.assertEqual(expected, bottles.BottleVerse.from_number(0))
+
+
 class BottlesTest(unittest.TestCase):
     def test_a_couple_verses(self):
         expected = (
@@ -343,70 +406,6 @@ class BottlesTest(unittest.TestCase):
         )
         expected += "\n"
         self.assertEqual(expected, bottles.Bottles().song())
-
-
-class BottleNumberTest(unittest.TestCase):
-    def test_returns_correct_class_for_given_number(self):
-        self.assertEqual(
-            type(bottles.BottleNumber.from_number(0)), bottles.BottleNumber0,
-        )
-        self.assertEqual(
-            type(bottles.BottleNumber.from_number(1)), bottles.BottleNumber1,
-        )
-        self.assertEqual(
-            type(bottles.BottleNumber.from_number(6)), bottles.BottleNumber6,
-        )
-        self.assertEqual(
-            type(bottles.BottleNumber.from_number(2)), bottles.BottleNumber,
-        )
-
-
-class BottleVerseTest(unittest.TestCase):
-    def test_the_first_verse(self):
-        expected = (
-            "99 bottles of beer on the wall, "
-            + "99 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "98 bottles of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.BottleVerse.from_number(99))
-
-    def test_another_verse(self):
-        expected = (
-            "3 bottles of beer on the wall, "
-            + "3 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "2 bottles of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.BottleVerse.from_number(3))
-
-    def test_verse_2(self):
-        expected = (
-            "2 bottles of beer on the wall, "
-            + "2 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "1 bottle of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.BottleVerse.from_number(2))
-
-    def test_verse_1(self):
-        expected = (
-            "1 bottle of beer on the wall, "
-            + "1 bottle of beer.\n"
-            + "Take it down and pass it around, "
-            + "no more bottles of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.BottleVerse.from_number(1))
-
-    def test_verse_0(self):
-        expected = (
-            "No more bottles of beer on the wall, "
-            + "no more bottles of beer.\n"
-            + "Go to the store and buy some more, "
-            + "99 bottles of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.BottleVerse.from_number(0))
-
 
 
 if __name__ == "__main__":
