@@ -85,7 +85,23 @@ class BottleVerseTest(unittest.TestCase):
         self.assertEqual(expected, bottles.BottleVerse.from_number(0))
 
 
+class VerseFake:
+    @classmethod
+    def from_number(cls, number):
+        return f"This is verse {number}. \n"
+
+
 class CountdownSongTest(unittest.TestCase):
+    def test_two_verses(self):
+        expected = (
+            "This is verse 99. \n"
+            + "\n"
+            + "This is verse 98. \n"
+        )
+        self.assertEqual(
+            expected,
+            bottles.CountdownSong(VerseFake).verses(99, 98))
+
     def test_a_couple_verses(self):
         expected = (
             "99 bottles of beer on the wall, "

@@ -3,6 +3,7 @@ FIXME = None
 
 class CountdownSong:
     def __init__(self, verse_template=None):
+        self.verse_template = verse_template
         if verse_template is None:
             self.verse_template = BottleVerse
 
