@@ -85,7 +85,7 @@ class BottleVerseTest(unittest.TestCase):
         self.assertEqual(expected, bottles.BottleVerse.from_number(0))
 
 
-class BottlesTest(unittest.TestCase):
+class CountdownSongTest(unittest.TestCase):
     def test_a_couple_verses(self):
         expected = (
             "99 bottles of beer on the wall, "
@@ -98,7 +98,7 @@ class BottlesTest(unittest.TestCase):
             + "Take one down and pass it around, "
             + "97 bottles of beer on the wall.\n"
         )
-        self.assertEqual(expected, bottles.Bottles().verses(99, 98))
+        self.assertEqual(expected, bottles.CountdownSong().verses(99, 98))
 
     def test_a_few_verses(self):
         expected = (
@@ -117,7 +117,7 @@ class BottlesTest(unittest.TestCase):
             + "Go to the store and buy some more, "
             + "99 bottles of beer on the wall.\n"
         )
-        self.assertEqual(expected, bottles.Bottles().verses(2, 0))
+        self.assertEqual(expected, bottles.CountdownSong().verses(2, 0))
 
     def test_the_whole_song(self):
         expected = inspect.cleandoc(
@@ -423,7 +423,7 @@ class BottlesTest(unittest.TestCase):
         Go to the store and buy some more, 99 bottles of beer on the wall."""
         )
         expected += "\n"
-        self.assertEqual(expected, bottles.Bottles().song())
+        self.assertEqual(expected, bottles.CountdownSong().song())
 
 
 if __name__ == "__main__":

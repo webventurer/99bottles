@@ -1,7 +1,7 @@
 FIXME = None
 
 
-class Bottles:
+class CountdownSong:
     def __init__(self, verse_template=None):
         if verse_template is None:
             self.verse_template = BottleVerse
