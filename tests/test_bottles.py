@@ -21,7 +21,7 @@ class BottleNumberTest(unittest.TestCase):
 
 
 class BottleVerseTest(unittest.TestCase):
-    def test_the_first_verse(self):
+    def test_common_rule_upper_bound(self):
         expected = (
             "99 bottles of beer on the wall, "
             + "99 bottles of beer.\n"
@@ -30,7 +30,7 @@ class BottleVerseTest(unittest.TestCase):
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(99))
 
-    def test_another_verse(self):
+    def test_common_rule_lower_bound(self):
         expected = (
             "3 bottles of beer on the wall, "
             + "3 bottles of beer.\n"
