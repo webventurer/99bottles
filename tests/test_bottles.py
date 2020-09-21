@@ -106,7 +106,7 @@ class CountdownSongTest(unittest.TestCase):
             expected,
             bottles.CountdownSong(VerseFake).verses(99, 98))
 
-    def test_the_whole_song(self):
+    def test_song(self):
         expected = (
             "This is verse 47. \n"
             + "\n"
