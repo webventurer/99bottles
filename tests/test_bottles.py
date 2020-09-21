@@ -390,5 +390,21 @@ class BottlesTest(unittest.TestCase):
         self.assertEqual(expected, bottles.Bottles().song())
 
 
+class BottleNumberTest(unittest.TestCase):
+    def test_returns_correct_class_for_given_number(self):
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(0)), bottles.BottleNumber0,
+        )
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(1)), bottles.BottleNumber1,
+        )
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(6)), bottles.BottleNumber6,
+        )
+        self.assertEqual(
+            type(bottles.BottleNumber.from_number(2)), bottles.BottleNumber,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
