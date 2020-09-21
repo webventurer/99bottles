@@ -8,8 +8,8 @@ class CountdownSong:
         return self.verses(self.max, self.min)
 
     def verses(self, upper, lower):
-        song = [self.verse(number) for number in range(upper, lower - 1, -1)]
-        return "\n".join(song)
+        text = [self.verse(number) for number in range(upper, lower - 1, -1)]
+        return "\n".join(text)
 
     def verse(self, number):
         return self.verse_template.from_number(number)
