@@ -14,6 +14,8 @@ macfsevents = "*"
 radon = "*"
 flake8-polyfill = "*"
 wily = "*"
+watchdog = "*"
+argh = "*"
 
 [requires]
 python_version = "3.8"
