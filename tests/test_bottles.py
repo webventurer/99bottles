@@ -16,13 +16,11 @@ class BottleNumberTest(unittest.TestCase):
 
 class BottleVerseTest(unittest.TestCase):
     def test_common_rule_upper_bound(self):
-        expected = (
-            "99 bottles of beer on the wall, "
-            + "99 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "98 bottles of beer on the wall.\n"
-        )
-        self.assertEqual(expected, bottles.BottleVerse.from_number(99))
+        expect = """
+99 bottles of beer on the wall, 99 bottles of beer.
+Take one down and pass it around, 98 bottles of beer on the wall.
+"""
+        self.assertEqual(expect.lstrip(), bottles.BottleVerse.from_number(99))
 
     def test_common_rule_lower_bound(self):
         expected = (
