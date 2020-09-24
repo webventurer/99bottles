@@ -10,12 +10,6 @@ class BottleNumberTest(unittest.TestCase):
             type(bottles.BottleNumber.from_number(0)), bottles.BottleNumber0,
         )
         self.assertEqual(
-            type(bottles.BottleNumber.from_number(1)), bottles.BottleNumber1,
-        )
-        self.assertEqual(
-            type(bottles.BottleNumber.from_number(6)), bottles.BottleNumber6,
-        )
-        self.assertEqual(
             type(bottles.BottleNumber.from_number(2)), bottles.BottleNumber,
         )
 
