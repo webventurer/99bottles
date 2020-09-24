@@ -33,54 +33,54 @@ class BottleVerseTest(unittest.TestCase):
     def test_common_rule_lower_bound(self):
         expected = (
             "3 bottles of beer on the wall, "
-            + "3 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "2 bottles of beer on the wall.\n"
+            "3 bottles of beer.\n"
+            "Take one down and pass it around, "
+            "2 bottles of beer on the wall.\n"
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(3))
 
     def test_verse_7(self):
         expected = (
             "7 bottles of beer on the wall, "
-            + "7 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "1 six-pack of beer on the wall.\n"
+            "7 bottles of beer.\n"
+            "Take one down and pass it around, "
+            "1 six-pack of beer on the wall.\n"
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(7))
 
     def test_verse_6(self):
         expected = (
             "1 six-pack of beer on the wall, "
-            + "1 six-pack of beer.\n"
-            + "Take one down and pass it around, "
-            + "5 bottles of beer on the wall.\n"
+            "1 six-pack of beer.\n"
+            "Take one down and pass it around, "
+            "5 bottles of beer on the wall.\n"
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(6))
 
     def test_verse_2(self):
         expected = (
             "2 bottles of beer on the wall, "
-            + "2 bottles of beer.\n"
-            + "Take one down and pass it around, "
-            + "1 bottle of beer on the wall.\n"
+            "2 bottles of beer.\n"
+            "Take one down and pass it around, "
+            "1 bottle of beer on the wall.\n"
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(2))
 
     def test_verse_1(self):
         expected = (
             "1 bottle of beer on the wall, "
-            + "1 bottle of beer.\n"
-            + "Take it down and pass it around, "
-            + "no more bottles of beer on the wall.\n"
+            "1 bottle of beer.\n"
+            "Take it down and pass it around, "
+            "no more bottles of beer on the wall.\n"
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(1))
 
     def test_verse_0(self):
         expected = (
             "No more bottles of beer on the wall, "
-            + "no more bottles of beer.\n"
-            + "Go to the store and buy some more, "
-            + "99 bottles of beer on the wall.\n"
+            "no more bottles of beer.\n"
+            "Go to the store and buy some more, "
+            "99 bottles of beer on the wall.\n"
         )
         self.assertEqual(expected, bottles.BottleVerse.from_number(0))
 
@@ -97,18 +97,16 @@ class CountdownSongTest(unittest.TestCase):
         self.assertEqual(expected, bottles.CountdownSong(VerseFake).verse(500))
 
     def test_verses(self):
-        expected = "This is verse 99. \n" + "\n" + "This is verse 98. \n"
+        expected = "This is verse 99. \n\nThis is verse 98. \n"
         self.assertEqual(
             expected, bottles.CountdownSong(VerseFake).verses(99, 98)
         )
 
     def test_song(self):
         expected = (
-            "This is verse 47. \n"
-            + "\n"
-            + "This is verse 46. \n"
-            + "\n"
-            + "This is verse 45. \n"
+            "This is verse 47. \n\n"
+            "This is verse 46. \n\n"
+            "This is verse 45. \n"
         )
         self.assertEqual(
             expected, bottles.CountdownSong(VerseFake, 47, 45).song(),
